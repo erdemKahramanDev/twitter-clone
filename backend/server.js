@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.js';
 import userRoutes from './routes/user.js';
+import postRoutes from './routes/post.js';
+import notificationRoutes from './routes/notification.js';
 import { connect } from 'mongoose';
 import connectMongoDb from './db/connectMongoDb.js';
 import cookieParser from 'cookie-parser';
@@ -25,6 +27,8 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoutes); 
 app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
+app.use("/api/notification", notificationRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
